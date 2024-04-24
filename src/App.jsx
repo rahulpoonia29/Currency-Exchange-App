@@ -45,6 +45,7 @@ function App() {
         "ars",
     ]);
     const [currencyData, setCurrencyData] = useState({});
+    const [currencyNames, setCurrencyNames] = useState({});
 
     useEffect(() => {
         (async () => {
@@ -60,19 +61,40 @@ function App() {
                 });
         })();
     }, []);
+
+    useEffect(() => {
+        (async () => {
+            await fetch(
+                "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json"
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    setCurrencyNames(data);
+                })
+                .catch((error) => {
+                    console.error("Error fetching currency data:", error);
+                });
+        })();
+    });
+
     return (
         <div
             style={{
                 backgroundImage: "url(./bg.png)",
                 backgroundSize: "cover",
             }}
-            className="w-full h-full flex flex-col items-center justify-evenly md:flex-row bg-slate-400"
+            className="w-full h-full flex flex-col items-center justify-evenly lg:gap-5 lg:flex-row bg-slate-400"
         >
+            <Card
+                currencyData={currencyData}
+                currencies={currencies}
+                currencyNames={currencyNames}
+            />
             <CurrencyRates
                 currencyData={currencyData}
                 currencies={currencies}
+                currencyNames={currencyNames}
             />
-            <Card currencyData={currencyData} currencies={currencies} />
         </div>
     );
 }

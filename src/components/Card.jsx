@@ -7,9 +7,7 @@ function onCurrencyChange(amount, fromCurrency, toCurrency, data) {
     setToAmount(data[fromCurrency] / data[toCurrency]);
 }
 
-function Card({ currencyData, currencies}) {
-
-
+function Card({ currencyData, currencies, currencyNames }) {
     const [amount, setAmount] = useState(1);
     const [toAmount, setToAmount] = useState(0);
     const [fromCurrency, setFromCurrency] = useState("usd");
@@ -33,20 +31,21 @@ function Card({ currencyData, currencies}) {
         }
     }, [amount, fromCurrency, toCurrency, currencyData]);
     return (
-        <div className=" bg-white p-0 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-lg">
+        <div className="m-5 text-md bg-white p-0 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-lg">
             <div
                 onClick={() => {
                     setFromCurrency(toCurrency);
                     setToCurrency(fromCurrency);
                 }}
                 style={{ backgroundImage: "url(./swap.png)" }} // Update the path of the image source
-                className="p-2 px-4 cursor-pointer z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg select-none bg-blue-400"
+                className="p-2 px-4 cursor-pointer z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg select-none bg-violet-400 hover:bg-violet-500 transition-colors ease-in-out"
             >
                 SWAP
             </div>
             <Input
                 label="From"
                 currencies={currencies}
+                currencyNames={currencyNames}
                 amount={amount}
                 currency={fromCurrency}
                 onAmountChange={setAmount}
@@ -57,6 +56,7 @@ function Card({ currencyData, currencies}) {
             <Input
                 label="To"
                 currencies={currencies}
+                currencyNames={currencyNames}
                 amount={toAmount}
                 currency={toCurrency}
                 onAmountChange={setAmount}

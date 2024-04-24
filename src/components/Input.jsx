@@ -3,6 +3,7 @@ import React, { useId, useState } from "react";
 function Input({
     label,
     currencies,
+    currencyNames,
     amount,
     currency,
     onAmountChange,
@@ -46,7 +47,12 @@ function Input({
                     {currencies.map(
                         (currency, key) =>
                             currency.charAt(0).match(/[a-z]/i) && (
-                                <option key={key} value={currency}>
+                                <option
+                                    key={key}
+                                    value={currency}
+                                    className="font-semibold test-sm text-gray-700"
+                                >
+                                    {/* {currencyNames[currency]}  */}
                                     {currency.toUpperCase()}
                                 </option>
                             )
