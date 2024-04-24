@@ -23,10 +23,10 @@ function Card({ currencyData, currencies, currencyNames }) {
             setToAmount(
                 Math.round(
                     amount *
-                        10000 *
+                        100 *
                         (currencyData["usd"][toCurrency] /
                             currencyData["usd"][fromCurrency])
-                ) / 10000
+                ) / 100
             );
         }
     }, [amount, fromCurrency, toCurrency, currencyData]);
