@@ -36,10 +36,6 @@ function Card({ currencyData, currencies, currencyNames }) {
                     setFromCurrency(toCurrency);
                     setToCurrency(fromCurrency);
                 }}
-                style={{
-                    backgroundImage: "url(./swap.svg)",
-                    backgroundPosition: "contain",
-                }}
                 className="p-2 px-4 cursor-pointer z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg select-none bg-violet-400 hover:bg-violet-500 transition-colors ease-in-out"
             >
                 SWAP

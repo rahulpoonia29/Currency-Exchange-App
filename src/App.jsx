@@ -80,7 +80,7 @@ function App() {
     return (
         <div
             style={{
-                backgroundImage: "url(./bg2.svg)",
+                backgroundImage: "url(/bg.svg)",
                 backgroundRepeat: "repeat",
             }}
             className="w-full py-5 gap-8 text-center flex flex-col items-center justify-evenly"
