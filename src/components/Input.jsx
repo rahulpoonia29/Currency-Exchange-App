@@ -14,7 +14,7 @@ function Input({
     const id1 = useId();
     return (
         <div className="text-md text-gray-700 p-5 m-4 flex justify-between gap-5 rounded-lg bg-gray-50">
-            <div className="w-2/5  flex flex-col gap-4">
+            <div className="w-1/3 flex flex-col gap-4">
                 <label className="" htmlFor={id}>
                     {label}
                 </label>
@@ -30,7 +30,7 @@ function Input({
                     }}
                 />
             </div>
-            <div className="w-2/5 flex flex-col gap-4">
+            <div className="w-1/2 flex flex-col gap-4">
                 <label className="text-end" htmlFor={id1}>
                     Currency
                 </label>
@@ -52,8 +52,8 @@ function Input({
                                     value={currency}
                                     className="font-semibold test-sm text-gray-700"
                                 >
-                                    {/* {currencyNames[currency]}  */}
-                                    {currency.toUpperCase()}
+                                    {currencyNames[currency]} (
+                                    {currency.toUpperCase()})
                                 </option>
                             )
                     )}

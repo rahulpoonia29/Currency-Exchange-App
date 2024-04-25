@@ -80,11 +80,19 @@ function App() {
     return (
         <div
             style={{
-                backgroundImage: "url(./bg.png)",
-                backgroundSize: "cover",
+                backgroundImage: "url(./bg2.svg)",
+                backgroundRepeat: "repeat",
             }}
-            className="w-full h-full flex flex-col items-center justify-evenly lg:gap-5 lg:flex-row bg-slate-400"
+            className="w-full py-5 gap-8 text-center flex flex-col items-center justify-evenly"
         >
+            <div className="text-gray-700 px-5 py-3 rounded-lg bg-gray-50 inline-block">
+                <h1 className="text-violet-800 text-3xl">ConvertMaster</h1>
+                <p className="text-sm font-semibold">
+                    {" "}
+                    Your Ultimate Currency Converter
+                </p>
+            </div>
+            {/* <div className="w-full h-full flex flex-col items-center justify-evenly lg:gap-5 lg:flex-col"> */}
             <Card
                 currencyData={currencyData}
                 currencies={currencies}
@@ -94,8 +102,10 @@ function App() {
                 currencyData={currencyData}
                 currencies={currencies}
                 currencyNames={currencyNames}
+                
             />
         </div>
+        // </div>
     );
 }
 

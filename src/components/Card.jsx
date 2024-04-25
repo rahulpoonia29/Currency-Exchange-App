@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import Input from "./Input";
-import swap from "../../public/swap.png";
 
 function onCurrencyChange(amount, fromCurrency, toCurrency, data) {
     setToAmount(data[fromCurrency] / data[toCurrency]);
@@ -31,13 +30,16 @@ function Card({ currencyData, currencies, currencyNames }) {
         }
     }, [amount, fromCurrency, toCurrency, currencyData]);
     return (
-        <div className="m-5 text-md bg-white p-0 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-lg">
+        <div className="w-[90%] md:w-[500px] text-md bg-white p-0 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-lg">
             <div
                 onClick={() => {
                     setFromCurrency(toCurrency);
                     setToCurrency(fromCurrency);
                 }}
-                style={{ backgroundImage: "url(./swap.png)" }} // Update the path of the image source
+                style={{
+                    backgroundImage: "url(./swap.svg)",
+                    backgroundPosition: "contain",
+                }}
                 className="p-2 px-4 cursor-pointer z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg select-none bg-violet-400 hover:bg-violet-500 transition-colors ease-in-out"
             >
                 SWAP
