@@ -72,6 +72,11 @@ function CurrencyRates({ currencyData, currencies, currencyNames }) {
                                         percentageChange >= 0
                                             ? "text-emerald-700"
                                             : "text-red-400"
+                                    } ${
+                                        percentageChange == 0
+                                            ? "text-gray-700"
+                                            : null
+                                    }
                                     }`}
                                 >
                                     {percentageChange}%
